@@ -35,11 +35,3 @@ body:
         description = "ClinVar clinical significance"
     validations:
       required: true
-  - type: input
-    id: checksum
-    attributes:
-      label: Data file checksum (MD5/SHA1/SHA256)
-      description: Required — the source data file's digest, as `<algo>:<hex>` or a checksum URL.
-      placeholder: "md5:d41d8cd98f00b204e9800998ecf8427e"
-    validations:
-      required: true
