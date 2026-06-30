@@ -1,0 +1,15 @@
+[[sources]]
+  name = "dbSNP"
+  version = "b157"
+  assembly = "GRCh38"
+  format = "vcf"
+  url = "https://ftp.ncbi.nih.gov/snp/archive/b157/VCF/GCF_000001405.40.gz"
+  url_index = "https://ftp.ncbi.nih.gov/snp/archive/b157/VCF/GCF_000001405.40.gz.tbi"
+  checksum = "md5:https://ftp.ncbi.nih.gov/snp/archive/b157/VCF/GCF_000001405.40.gz.md5"
+  checksum_index = "md5:https://ftp.ncbi.nih.gov/snp/archive/b157/VCF/GCF_000001405.40.gz.tbi.md5"
+
+  [[sources.annotations]]
+    name = "DBSNPID"
+    field = "@ID"
+    type = "text"
+    description = "dbSNP ID"

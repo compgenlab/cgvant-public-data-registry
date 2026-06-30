@@ -23,3 +23,10 @@ version     = "b156"
 assembly    = "GRCh38"
 file        = "sources/dbSNP/b156/dbSNP@b156.toml"
 description = ""
+
+[[sources]]
+name        = "dbSNP"
+version     = "b157"
+assembly    = "GRCh38"
+file        = "sources/dbSNP/b157/dbSNP@b157.toml"
+description = ""
