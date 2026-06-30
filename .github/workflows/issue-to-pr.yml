@@ -66,9 +66,15 @@ jobs:
               out.write(f"name={name}\nversion={version}\nbranch=submit/{name}-{version}-{num}\n")
           PY
 
+      # Opens the PR with a fine-grained PAT (secrets.REGISTRY_PR_SECRET, scoped to
+      # this repo: Pull requests + Contents read/write) rather than the default
+      # GITHUB_TOKEN. The org forbids Actions from creating PRs ("GitHub Actions is
+      # not permitted to create or approve pull requests"); a user token is not
+      # subject to that policy. See README setup.
       - name: Open pull request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
+          token: ${{ secrets.REGISTRY_PR_SECRET }}
           branch: ${{ steps.extract.outputs.branch }}
           base: main
           title: "Add source ${{ steps.extract.outputs.name }}@${{ steps.extract.outputs.version }}"
