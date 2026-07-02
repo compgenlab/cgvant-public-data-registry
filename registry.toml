@@ -1,21 +1,21 @@
-# cgtag public data registry — catalog of source/release configs (NOT the data).
-# Served as a static file; cgtag fetches it over HTTPS. Each entry's `file` is a
+# vant public data registry — catalog of source/snapshot configs (NOT the data).
+# Served as a static file; vant fetches it over HTTPS. Each entry's `file` is a
 # path (relative to this file's directory) to a config snippet.
 #
 # Sources are added by the issue-to-pr workflow when a `source-submission` issue
-# is filed (e.g. via `cgtag registry submit`). Example shape:
+# is filed (e.g. via `vant registry submit`). Example shape:
 #
 # [[sources]]
 # name        = "clinvar"
 # version     = "2026-01"
 # assembly    = "GRCh38"
-# file        = "sources/clinvar@2026-01.toml"
+# file        = "sources/clinvar/2026-01/clinvar-2026-01.toml"
 # description = "ClinVar clinical significance"
 #
-# [[releases]]
+# [[snapshots]]
 # name        = "2026-06"
-# file        = "releases/2026-06.toml"
-# description = "GRCh38 starter release"
+# file        = "snapshots/2026-06.toml"
+# description = "GRCh38 starter snapshot"
 
 [[sources]]
 name        = "dbSNP"

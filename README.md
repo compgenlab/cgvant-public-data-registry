@@ -1,37 +1,50 @@
-# cgtag-public-data-registry
+# vant-public-data-registry
 
-A catalog of **annotation source/release configs** for [cgtag](https://github.com/compgenlab/cgtag).
-It holds *configurations, not data* — `cgtag download` fetches the actual files.
+A catalog of **annotation source/release configs** for [vant](https://github.com/compgenlab/vant).
+It holds *configurations, not data* — `vant download` fetches the actual files.
 
 ## Layout
 
 ```
-registry.toml              catalog: [[sources]] and [[releases]] entries (each has a `file`)
-sources/<name>@<ver>.toml  one source's config snippet (a source + its annotations)
-releases/<name>.toml       a full release bundle
+registry.toml                              catalog: [[sources]]/[[snapshots]] entries (each has a `file`)
+sources/<name>/<ver>/<name>-<ver>.toml     one source's config snippet (a source + its annotations)
+snapshots/<name>.toml                       a full snapshot bundle
 ```
 
-`registry.toml` is served over HTTPS (GitHub raw, Pages, S3 — anywhere). cgtag
-points at its URL; entry `file` paths resolve relative to it.
+`registry.toml` is served over HTTPS (GitHub raw, Pages, S3 — anywhere). vant
+points at its URL; entry `file` paths resolve relative to it — so the on-disk name is
+free (the layout above is just the convention). Versions are tags: `add-source
+clinvar:2026-01`, or `clinvar` / `clinvar:latest` for the entry marked `latest = true`
+(versions aren't auto-sorted, so the publisher declares latest).
 
 ## Consuming it
 
 ```sh
-cgtag registry list                                # uses this registry by default
-cgtag release add <release-name>                   # create a local release first
-cgtag registry add-source <release-name> clinvar   # merge a source's config into it
-cgtag registry pull-release <release-name>         # or pull a whole release
+vant registry list                                # uses this registry by default
+vant release add <snapshot-name>                   # create a local release first
+vant registry add-source <snapshot-name> clinvar   # merge a source's config into it
+vant registry pull-release <snapshot-name>         # or pull a whole release
 ```
 
-## Contributing a source
+## Contributing a source or tool
 
-Run `cgtag registry submit <release-name> <source>` (needs a `public_repo`
-`GITHUB_TOKEN`), or open an issue with the **`source-submission`** label and the source
-config in a ` ```toml ` block. A submitted source **must declare a `checksum`**
+Run `vant registry submit <name[:version]>` (needs a `public_repo`
+`GITHUB_TOKEN`), or open an issue with the **`source-submission`** label and the
+config in a ` ```toml ` block. Submissions are always `[[sources]]` fragments — a tool is
+just a `type = "tool"` source. A submitted data source **must declare a `checksum`**
 (`md5`/`sha1`/`sha256`) for its data file. The
-[issue-to-pr workflow](.github/workflows/issue-to-pr.yml) parses it, writes
-`sources/<name>@<version>.toml`, adds the `registry.toml` entry, and opens a PR closing
-the issue — a maintainer reviews and merges.
+[issue-to-pr workflow](.github/workflows/issue-to-pr.yml) parses the `[[sources]]`
+block, writes `sources/<name>/<version>/<name>-<version>.toml`,
+updates the `registry.toml` entry (marking the new version `latest`), and opens a PR
+closing the issue — a maintainer reviews and merges.
+
+**Helper scripts** declared via `[[sources.build]].assets` (build sources) or a tool
+source's top-level `assets` ride in
+the issue body as a base64 `tar.gz` block (` ```assets.tar.gz.base64 `); the workflow
+unpacks them into **individual files** next to the fragment, so the PR carries real,
+reviewable scripts. (GitHub's API can't attach files, so the tarball is embedded in the
+body — keep assets to text scripts; large/binary data belongs in a `url`/`setup`
+download.)
 
 ## Setup (one-time, for maintainers)
 
