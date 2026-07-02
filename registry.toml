@@ -1,53 +1,37 @@
-# cgvant public data registry — catalog of source/snapshot configs (NOT the data).
-# Served as a static file; cgvant fetches it over HTTPS. Each entry's `file` is a
-# path (relative to this file's directory) to a config snippet.
-#
-# Sources are added by the issue-to-pr workflow when a `source-submission` issue
-# is filed (e.g. via `cgvant registry submit`). Example shape:
-#
-# [[sources]]
-# name        = "clinvar"
-# version     = "2026-01"
-# assembly    = "GRCh38"
-# file        = "sources/clinvar/2026-01/clinvar-2026-01.toml"
-# description = "ClinVar clinical significance"
-#
-# [[snapshots]]
-# name        = "2026-06"
-# file        = "snapshots/2026-06.toml"
-# description = "GRCh38 starter snapshot"
+# cgvant registry catalog — auto-maintained by the issue-to-pr workflow.
 
 [[sources]]
-name        = "dbSNP"
-version     = "b156"
-assembly    = "GRCh38"
-file        = "sources/dbSNP/b156/dbSNP-b156.toml"
-description = ""
+name = "dbSNP"
+version = "b156"
+assembly = "GRCh38"
+file = "sources/dbSNP/b156/dbSNP-b156.toml"
 
 [[sources]]
-name        = "dbSNP"
-version     = "b157"
-assembly    = "GRCh38"
-file        = "sources/dbSNP/b157/dbSNP-b157.toml"
-description = ""
+name = "dbSNP"
+version = "b157"
+assembly = "GRCh38"
+file = "sources/dbSNP/b157/dbSNP-b157.toml"
 
 [[sources]]
-name        = "ClinVar"
-version     = "20250202"
-assembly    = "GRCh38"
-file        = "sources/ClinVar/20250202/ClinVar-20250202.toml"
-description = ""
+name = "ClinVar"
+version = "20250202"
+assembly = "GRCh38"
+file = "sources/ClinVar/20250202/ClinVar-20250202.toml"
 
 [[sources]]
-name        = "CADD"
-version     = "1.7"
-assembly    = "GRCh38"
-file        = "sources/CADD/1.7/CADD-1.7.toml"
-description = ""
+name = "CADD"
+version = "1.7"
+assembly = "GRCh38"
+file = "sources/CADD/1.7/CADD-1.7.toml"
 
 [[sources]]
-name        = "gnomAD"
-version     = "4.1.0"
-assembly    = "GRCh38"
-file        = "sources/gnomAD/4.1.0/gnomAD-4.1.0.toml"
-description = ""
+name = "gnomAD"
+version = "4.1.0"
+assembly = "GRCh38"
+file = "sources/gnomAD/4.1.0/gnomAD-4.1.0.toml"
+
+[[sources]]
+name = "REVEL"
+version = "1.3"
+file = "sources/REVEL/1.3/REVEL-1.3.toml"
+latest = true
