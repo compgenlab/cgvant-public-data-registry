@@ -1,0 +1,137 @@
+[[sources]]
+  name = "clinvar"
+  version = "20250202"
+  assembly = "GRCh38"
+  format = "vcf"
+  url = "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/weekly/clinvar_20250202.vcf.gz"
+  url_index = "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/weekly/clinvar_20250202.vcf.gz.tbi"
+  checksum = "md5:https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/weekly/clinvar_20250202.vcf.gz.md5"
+  checksum_index = "md5:https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/weekly/clinvar_20250202.vcf.gz.tbi.md5"
+
+  [[sources.annotations]]
+    name = "CLINVAR_MATCH"
+    type = "flag"
+    description = "Is the variant seen in ClinVar"
+
+  [[sources.annotations]]
+    name = "CLINVAR_MATCH_ALLELEID"
+    field = "ALLELEID"
+    type = "text"
+    description = "ALLELEID for the variant"
+
+  [[sources.annotations]]
+    name = "CLINVAR_MATCH_CLNDN"
+    field = "CLNDN"
+    type = "categorical"
+    description = "ClinVar disease name for the variant"
+
+  [[sources.annotations]]
+    name = "CLINVAR_MATCH_CLNDISDB"
+    field = "CLNDISDB"
+    type = "text"
+    description = "ClinVar disease DB ID for the variant"
+
+  [[sources.annotations]]
+    name = "CLINVAR_MATCH_CLNREVSTAT"
+    field = "CLNREVSTAT"
+    type = "categorical"
+    description = "ClinVar review status of germline classification for the Variation ID"
+
+  [[sources.annotations]]
+    name = "CLINVAR_MATCH_CLNSIG"
+    field = "CLNSIG"
+    type = "text"
+    description = "ClinVar Aggregate germline classification for this single variant"
+
+  [[sources.annotations]]
+    name = "CLINVAR_MATCH_CLNVC"
+    field = "CLNVC"
+    type = "text"
+    description = "ClinVar Variant type"
+
+  [[sources.annotations]]
+    name = "CLINVAR_MATCH_DBVARID"
+    field = "DBVARID"
+    type = "text"
+    description = "ClinVar nsv accessions from dbVar for the variant"
+
+  [[sources.annotations]]
+    name = "CLINVAR_MATCH_MC"
+    field = "MC"
+    type = "text"
+    description = "ClinVar comma separated list of molecular consequence in the form of Sequence Ontology ID|molecular_consequence"
+
+  [[sources.annotations]]
+    name = "CLINVAR_MATCH_ORIGIN"
+    field = "ORIGIN"
+    type = "categorical"
+    description = "ClinVar Allele origin. One or more of the following values may be added: 0 - unknown; 1 - germline; 2 - somatic; etc..."
+
+  [[sources.annotations]]
+    name = "CLINVAR_POS"
+    type = "flag"
+    match = "position"
+    description = "Is a variant seen at this position in ClinVar"
+
+  [[sources.annotations]]
+    name = "CLINVAR_POS_ALLELEID"
+    field = "ALLELEID"
+    type = "text"
+    match = "position"
+    description = "ALLELEID for a variant at this position"
+
+  [[sources.annotations]]
+    name = "CLINVAR_POS_CLNDN"
+    field = "CLNDN"
+    type = "categorical"
+    match = "position"
+    description = "ClinVar disease name for a variant at this position"
+
+  [[sources.annotations]]
+    name = "CLINVAR_POS_CLNDISDB"
+    field = "CLNDISDB"
+    type = "text"
+    match = "position"
+    description = "ClinVar disease DB ID for a variant at this position"
+
+  [[sources.annotations]]
+    name = "CLINVAR_POS_CLNREVSTAT"
+    field = "CLNREVSTAT"
+    type = "categorical"
+    match = "position"
+    description = "ClinVar review status of germline classification for a variant at this position"
+
+  [[sources.annotations]]
+    name = "CLINVAR_POS_CLNSIG"
+    field = "CLNSIG"
+    type = "text"
+    match = "position"
+    description = "ClinVar Aggregate germline classification for a variant at this position"
+
+  [[sources.annotations]]
+    name = "CLINVAR_POS_CLNVC"
+    field = "CLNVC"
+    type = "text"
+    match = "position"
+    description = "ClinVar Variant type for a variant at this position"
+
+  [[sources.annotations]]
+    name = "CLINVAR_POS_DBVARID"
+    field = "DBVARID"
+    type = "text"
+    match = "position"
+    description = "ClinVar nsv accessions from dbVar for a variant at this position"
+
+  [[sources.annotations]]
+    name = "CLINVAR_POS_MC"
+    field = "MC"
+    type = "text"
+    match = "position"
+    description = "ClinVar comma separated list of molecular consequence in the form of Sequence Ontology ID|molecular_consequence for a variant at this position"
+
+  [[sources.annotations]]
+    name = "CLINVAR_POS_ORIGIN"
+    field = "ORIGIN"
+    type = "categorical"
+    match = "position"
+    description = "ClinVar Allele origin for a variant at this position. One or more of the following values may be added: 0 - unknown; 1 - germline; 2 - somatic; etc..."
